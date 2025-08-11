@@ -1,13 +1,69 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-main-fade{background:var(--main-fade);}
+
+
+.font-schi{
+    font-family: 'Schibsted Grotesk', sans-serif;
+}
+  body {
+  --white:#ffffff;
+  --bg-sky:#b5e7ff;
+  --black:#000000;
+  --gray:#cccccc;
+  --gray2:#4D4D4D;
+  --mint:#05EFB8;
+  --pink:#F94F97;
+  --yellow:#E6EA7B;
+  --lightpink:#FFC4E2;
+  --voilet: #8C52FF;
+  --purple: #8C52FF;
+  --body-font:'gulfs';
+  --heading-font: 'gulfs';
+  --para-font: 'CeraGRMedium';
+  --parabold-font: 'CeraGRBold';
+  --text-wh: #ffffff;
+  --text-bl: #000000;
+  --text-gray: #616161;
+  --text-graydark: #333333;
+  --text-paragraph:  #999999;
+  --linear-gradient :linear-gradient(to right, #f9a8d4, #f9a8d4, #f472b6);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background:var(--bg-sky);
+  color :white;
+  font-family: "Inter", sans-serif;
 }
+
+.hero_bg{background:var(--bg-sky);}
+
+
+@layer components{
+.button { @apply bg-[#08CF65] text-white text-center font-[600] cursor-pointer rounded-[10px] inline-block font-schi}
+.button-lg {  @apply button text-[16px] px-3 py-1; }
+.button-md {  @apply button text-[14px] px-5 py-2.5;   }
+.button-sm { @apply button text-[12px] px-4 py-1.5;}
+.boxmodel{ @apply   h-screen flex items-center justify-center}
+.box{ @apply bg-white rounded-[20px] shadow-lg p-6 w-[435px] h-[576px]  font-schi  }
+.para{ @apply text-[#111111] text-[16px] font-normal font-schi  }
+.heading{ @apply text-black font-[600]  font-schi}
+.heading-md{@apply heading text-[20px] leading-[16px]}
+.heading-lg{@apply heading text-[22px] leading-[18px]}
+.heading-xl{@apply heading text-[24px] leading-[20px]}
+.normal-heading{@apply text-white text-[24px] font-bold font-schi}
+.Add{ @apply border-[#08CF65] border-2 text-[#08CF65] text-center font-schi}
+.input{@apply  justify-center border-[#646A73] border items-start px-[15px] py-[10px] mt-2.5 mb-2.5 w-full whitespace-nowrap text-white rounded-[15px] max-w-full}
+.input-sm{@apply input px-[20px] py-[15px] rounded-[15px]}
+}
+
+
+.custom-scroll::-webkit-scrollbar{background:#646A73;height:2px !important;width:2px !important;border-radius:6px;}
+.custom-scroll::-webkit-scrollbar-track{background:#646A73;border-radius:6px;}
+.custom-scroll::-webkit-scrollbar-thumb{background:#646A73;}
+.custom-scroll2::-webkit-scrollbar{height:10px !important;}
