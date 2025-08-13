@@ -7,5 +7,5 @@
           }
         }
         .animate-slideUp {
-          animation: slideUp 0.5s ease-out;
+          animation: slideUp 1.0s ease-out;
         }
