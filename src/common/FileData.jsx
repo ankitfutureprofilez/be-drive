@@ -27,10 +27,10 @@ export default function FileData({ step }) {
   };
 
   const fileIcons = {
-    video: <FaFileVideo className="text-red-600 text-xl" />,
-    image: <FaImage className="text-blue-600 text-xl" />,
-    audio: <FaFileAudio className="text-purple-600 text-xl" />,
-    doc: <MdInsertDriveFile className="text-gray-600 text-xl" />,
+    video: <FaFileVideo className="text-red-600" size={28} />,
+    image: <FaImage className="text-blue-600" size={28} />,
+    audio: <FaFileAudio className="text-purple-600" size={28} />,
+    doc: <MdInsertDriveFile className="text-gray-600" size={28} />,
   };
 
 
