@@ -26,7 +26,7 @@ export default function FileData({ step }) {
       return 'video';
     } else if (isDoc) {
       return 'doc';
-    }  else {
+    } else {
       return 'other';
     }
   };
@@ -38,8 +38,6 @@ export default function FileData({ step }) {
     other: <MdInsertDriveFile className="text-gray-600" size={28} />,
     doc: <IoMdDocument className="text-blue-600" size={28} />,
   };
-
-
   return (
     <div
       className={`${step === 4 ? "max-h-[300px]" : "max-h-[160px]"
@@ -65,7 +63,7 @@ export default function FileData({ step }) {
                 <MdDownload size={24} className='text-gray-700 hover:text-gray-400' />
               </div>
             ) : (
-              <MdClose size={24} className='text-gray-700 hover:text-gray-400'/>
+              <MdClose size={24} className='text-gray-700 hover:text-gray-400' />
             )}
           </button>
         </div>
