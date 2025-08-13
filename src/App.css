@@ -1,11 +1,13 @@
 @keyframes slideUp {
-          from {
-            transform: translateY(100%);
-          }
-          to {
-            transform: translateY(0%);
-          }
-        }
-        .animate-slideUp {
-          animation: slideUp 1.0s ease-out;
-        }
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 1.0s ease-out;
+}
