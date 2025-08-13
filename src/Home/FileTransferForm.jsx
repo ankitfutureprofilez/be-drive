@@ -3,8 +3,9 @@ import TransferSettingsModal from '../common/TransferSettingsModal'
 import { MdAdd } from 'react-icons/md';
 import FileData from '../common/FileData';
 import { CiSettings } from 'react-icons/ci';
+import Menu from '../common/Menu';
 
-export default function FileTransferForm({ step, setStep  , activeTab, setActiveTab }) {
+export default function FileTransferForm({ step, setStep, activeTab, setActiveTab }) {
     const [showSettings, setShowSettings] = useState(false);
     const handleSettingsClick = () => {
         setShowSettings(true);
@@ -12,18 +13,25 @@ export default function FileTransferForm({ step, setStep  , activeTab, setActive
     const handleModalClose = () => {
         setShowSettings(false);
     };
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
     return (
         <>
             {step === 2 && (
-                <div className="box ">
+                <div className="box overflow-hidden relative">
                     <div className='p-[20px] md:p-[30px]'>
                         <div className="flex items-center justify-between">
                             <div>
                                 <h2 className="heading-md mb-1">1 items</h2>
                                 <p className="para !text-[#999999]">115.3 KB out of 100 GB</p>
                             </div>
-                            <div className="Add rounded-[15px] flex items-center justify-center p-2">
+                            <div className="Add rounded-[15px] flex items-center justify-center p-2 relative cursor-pointer " onClick={toggleMenu}>
                                 <MdAdd size={24} />
+                                {isMenuOpen && <Menu />}
                             </div>
                         </div>
                         <div className="flex space-x-8 border-b-2 border-[#999999] mt-3">
@@ -32,13 +40,10 @@ export default function FileTransferForm({ step, setStep  , activeTab, setActive
                                 className="manage-col cursor-pointer"
                                 onClick={() => setActiveTab('Link')}
                             >
-                                <span className={`text-[18px] font-medium transition-colors duration-200 ${activeTab === 'Link' ? 'text-[#08CF65]' : 'text-[#999999]'}`}
+                                <span className={`text-[18px] font-medium transition-colors duration-200 ${activeTab === 'Link' ? 'text-[#08CF65] border-b-2 border-[#08CF65]' : 'text-[#999999]'}`}
                                 >
                                     Link
                                 </span>
-                                <div className={`mt-1 h-0.5 transition-all duration-200 ${activeTab === 'Link' ? 'bg-green-500 w-full' : 'w-full'}`} >
-                                    Email
-                                </div>
                             </div>
                             {/* Email Tab */}
                             <div
@@ -46,11 +51,10 @@ export default function FileTransferForm({ step, setStep  , activeTab, setActive
                                 onClick={() => setActiveTab('Email')}
                             >
                                 <span
-                                    className={`text-lg font-medium transition-colors duration-200 ${activeTab === 'Email' ? 'text-[#08CF65]' : 'text-[#999999]'
+                                    className={`text-lg font-medium transition-colors duration-200 ${activeTab === 'Email' ? 'text-[#08CF65] border-b-2 border-[#08CF65]' : 'text-[#999999]'
                                         }`} >
                                     Email
                                 </span>
-                                <div className={`mt-1 h-0.5 transition-all duration-200 ${activeTab === 'Email' ? 'bg-green-500 w-full' : 'w-full'}`}> Link </div>
                             </div>
                         </div>
                         <FileData />
@@ -92,9 +96,11 @@ export default function FileTransferForm({ step, setStep  , activeTab, setActive
                             </button>
                         </div>
                     </div>
+                    {showSettings && <TransferSettingsModal onClose={handleModalClose} />}
                 </div>
+
             )}
-            {showSettings && <TransferSettingsModal onClose={handleModalClose} />}
         </>
+
     )
 }

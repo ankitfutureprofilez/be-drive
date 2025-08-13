@@ -37,7 +37,6 @@
 
 body{
   /* background:var(--bg-sky); */
-  color :white;
   font-family: "Inter", sans-serif;
 }
 
@@ -74,6 +73,12 @@ body{
 .border-apply{@apply border-b border-[#0000001E]}
 .transefer{@apply text-[18px] font-normal leading-6 font-schibsted underline text-black hover:underline text-center}
 .manage-col{ @apply flex flex-col justify-center items-center text-center}
+.toggle-checkbox {
+  @apply w-5 h-5 rounded-full appearance-none bg-gray-300 checked:bg-indigo-500 transition;
+}
+.font-signature {
+  font-family: 'Brush Script MT', cursive;
+}
 }
 
 .custom-scroll::-webkit-scrollbar{background:#646A73;height:2px !important;width:1px !important;border-radius:6px;}

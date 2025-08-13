@@ -7,7 +7,7 @@ import TransferFile from './TransferFile';
 import ReceivedItem from './ReceivedItem';
 import TransferSuccess from './TransferSuccess';
 export default function Main() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [activeTab, setActiveTab] = useState('Link');
 
   return (

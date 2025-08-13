@@ -1,8 +1,8 @@
 
 const TransferSettingsModal = ({ onClose }) => {
     return (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-end justify-center p-[160px] z-50">
-            <div className="bg-white w-full max-w-[435px] rounded-t-2xl shadow-xl p-6 animate-slideUp">
+        <div className="fixed inset-0 w-full max-w-[435px]  bg-gray-600 bg-opacity-50 flex items-end justify-center p-[3px] z-50 absolute">
+            <div className="bg-white w-full max-w-[435px]  rounded-[15px] shadow-xl p-6 animate-slideUp">
                 <h3 className="normal-heading mb-4">Transfer settings</h3>
                 <div className="mb-4 flex items-center justify-between">
                     <label className="text-[18px] font-medium text-black font-bold w-1/3 font-schibsted">

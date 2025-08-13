@@ -17,7 +17,7 @@ export default function ReceivedItem({ step }) {
         <>
             {step === 5 && (
                 <div className="box">
-                        <Download />
+                    <Download />
                     <div className='!pt-0 p-[20px] md:p-[30px]'>
                         <FileData step={4} />
                         <div className="flex justify-between items-center mt-6 pb-4">
