@@ -10,6 +10,7 @@ const TransferSettingsModal = ({ onClose }) => {
                     </label>
                     <div className=" w-2/3">
                         <input
+                            onClick={(e) => e.target.showPicker && e.target.showPicker()}
                             type="date"
                             placeholder="dd/mm/yyyy"
                             className="w-full input-sm sm:input pl-3 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
