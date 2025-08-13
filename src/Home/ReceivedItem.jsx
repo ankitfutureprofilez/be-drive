@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Download from '../common/Download'
 import FileData from '../common/FileData'
 import PasswordModal from '../common/PasswordModal';
+import StoragePopup from '../common/StoragePopup';
 
 export default function ReceivedItem({ step }) {
     const [ispassowrd, setIspassword] = useState(false)
@@ -31,6 +32,7 @@ export default function ReceivedItem({ step }) {
                                 Download
                             </button>
                         </div>
+                        <StoragePopup/>
                     </div>
                 </div>
             )}
