@@ -1,6 +1,6 @@
 import React from 'react';
-import { MdInsertDriveFile, MdClose, MdDownload } from 'react-icons/md';
-import { IoMdEye } from 'react-icons/io';
+import { MdInsertDriveFile, MdClose, MdDownload, MdDock } from 'react-icons/md';
+import { IoMdDocument, IoMdEye } from 'react-icons/io';
 import { FaImage, FaFileAudio, FaFileVideo } from 'react-icons/fa';
 export default function FileData({ step }) {
   const files = [
@@ -9,20 +9,25 @@ export default function FileData({ step }) {
     { name: "Clip.mp4", size: "200.0 KB", type: "video" },
     { name: "Sample.mp4", size: "150.8 KB", type: "video" },
     { name: "Final.mp4", size: "300.5 KB", type: "video" },
+    { name: "bedrive.docx", size: "300.5 KB", type: "doc" },
+    { name: "image.png", size: "150.8 KB", type: "image" },
   ];
 
   const getMime = (type) => {
     const isImage = type.includes('image');
     const isVideo = type.includes('video');
     const isAudio = type.includes('audio');
+    const isDoc = type.includes('doc');
     if (isImage) {
       return 'image';
     } else if (isAudio) {
       return 'audio';
     } else if (isVideo) {
       return 'video';
-    } else {
+    } else if (isDoc) {
       return 'doc';
+    }  else {
+      return 'other';
     }
   };
 
@@ -30,7 +35,8 @@ export default function FileData({ step }) {
     video: <FaFileVideo className="text-red-600" size={28} />,
     image: <FaImage className="text-blue-600" size={28} />,
     audio: <FaFileAudio className="text-purple-600" size={28} />,
-    doc: <MdInsertDriveFile className="text-gray-600" size={28} />,
+    other: <MdInsertDriveFile className="text-gray-600" size={28} />,
+    doc: <IoMdDocument className="text-blue-600" size={28} />,
   };
 
 
