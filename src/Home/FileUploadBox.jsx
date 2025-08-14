@@ -1,18 +1,42 @@
 import React, { useState, useRef } from "react";
 import { MdAdd } from "react-icons/md";
 
-export default function FileUploadBox({ setStep, step }) {
+export default function FileUploadBox({ setStep, step, selectedFiles, setSelectedFiles }) {
     const [isDragging, setIsDragging] = useState(false);
-    const [selectedFiles, setSelectedFiles] = useState([]);
 
     const addInputRef = useRef(null);
     const folderInputRef = useRef(null);
 
     const handleFilesSelected = (files) => {
         const arr = Array.from(files);
-        setSelectedFiles(arr);
+
+        const folderMap = {};
+        const individualFiles = [];
+
+        arr.forEach((file) => {
+            if (file.webkitRelativePath) {
+                // Folder file
+                const pathParts = file.webkitRelativePath.split('/');
+                const folderName = pathParts.length > 1 ? pathParts[0] : "Root";
+                if (!folderMap[folderName]) folderMap[folderName] = [];
+                folderMap[folderName].push(file);
+            } else {
+                // Individual file
+                individualFiles.push(file);
+            }
+        });
+
+        // Convert folderMap to array
+        const groupedFolders = Object.keys(folderMap).map((folderName) => ({
+            folderName,
+            files: folderMap[folderName],
+        }));
+
+        // Combine individual files and folders
+        setSelectedFiles((prev) => [...prev, ...individualFiles, ...groupedFolders]);
         setStep(2);
     };
+
 
     const handleDragOver = (e) => {
         e.preventDefault();
@@ -41,25 +65,22 @@ export default function FileUploadBox({ setStep, step }) {
                     onDrop={handleDrop}
                 >
                     <div className="manage-col text-center">
-                        {/* Hidden inputs */}
                         <input
                             type="file"
                             multiple
-                            webkitdirectory=""
                             ref={addInputRef}
                             className="hidden"
                             onChange={(e) => handleFilesSelected(e.target.files)}
                         />
-
                         <input
                             type="file"
                             webkitdirectory=""
+                            directory=""
+                            multiple
                             ref={folderInputRef}
                             className="hidden"
                             onChange={(e) => handleFilesSelected(e.target.files)}
                         />
-
-                        {/* Add button */}
                         <label
                             onClick={() => addInputRef.current.click()}
                             className="Add rounded-[35px] p-4 mb-6 cursor-pointer inline-block"
@@ -67,37 +88,16 @@ export default function FileUploadBox({ setStep, step }) {
                             <MdAdd size={56} />
                         </label>
 
+
                         <p className="para mt-[10px]">Let's begin by adding some files or folders</p>
 
-                        {/* Select folder link */}
                         <p
                             onClick={() => folderInputRef.current.click()}
                             className="transefer mt-1 inline-block cursor-pointer"
                         >
                             Or select folder
                         </p>
-
-                        <p className="mt-4 transefer">
-                            Or drag and drop files/folders here
-                        </p>
                     </div>
-
-                    {/* Preview */}
-                    {selectedFiles.length > 0 && (
-                        <div className="mt-4 w-full max-w-md px-4">
-                            <h3 className="font-semibold mb-2 text-center">Selected:</h3>
-                            <ul className="list-disc pl-5 text-left">
-                                {selectedFiles.map((file, index) => (
-                                    <li key={index}>
-                                        {file.webkitRelativePath || file.name}{" "}
-                                        <span className="text-gray-500 text-sm">
-                                            {(file.size / 1024).toFixed(2)} KB
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
                 </div>
             )}
         </>

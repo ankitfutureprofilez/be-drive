@@ -1,7 +1,7 @@
 // Your consolidated component file: TransferSuccessPage.jsx
 
 import React from 'react';
-import {  AiOutlineCopy } from 'react-icons/ai';
+import { AiOutlineCopy } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -30,10 +30,10 @@ const TransferSuccessPage = ({ type = 'Email', downloadLink, step, setStep }) =>
                     <div className="manage-col p-4 md:p-[40px]">
                         <div className="flex justify-center mb-6">
                             {type === "Link" ? (
-                            <img src="./Shared.png" alt='' className='h-32 w-32' />
+                                <img src="./Shared.png" alt='' className='h-32 w-32' />
                             ) : (
-                                     <img src="./Mail.png" alt='' className='h-32 w-32' />
-                            ) }
+                                <img src="./Mail.png" alt='' className='h-32 w-32' />
+                            )}
                         </div>
 
                         <div className="mb-3 md:mb-6 text-center">

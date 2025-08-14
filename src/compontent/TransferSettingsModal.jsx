@@ -1,5 +1,25 @@
+import { useState } from "react";
 
 const TransferSettingsModal = ({ onClose }) => {
+
+    const [data, setData] = useState({
+        password: "",
+        date: "",
+    })
+
+    const handleChange = (e) => {
+        setData((prevalue) => {
+            return {
+                ...prevalue,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    const handlesubmit = (e) => {
+        e.preventDefault();
+        onClose();
+    }
     return (
         <div className="fixed inset-0 w-full max-w-[435px]  bg-gray-600 bg-opacity-50 flex items-end justify-center p-[3px] z-50 absolute">
             <div className="bg-white w-full max-w-[435px]  rounded-[15px] shadow-xl p-6 animate-slideUp">
@@ -10,6 +30,9 @@ const TransferSettingsModal = ({ onClose }) => {
                     </label>
                     <div className=" w-2/3">
                         <input
+                            name="date"
+                            value={data?.date}
+                            onChange={handleChange}
                             onClick={(e) => e.target.showPicker && e.target.showPicker()}
                             type="date"
                             placeholder="dd/mm/yyyy"
@@ -24,6 +47,9 @@ const TransferSettingsModal = ({ onClose }) => {
                     </label>
                     <input
                         type="text"
+                        name="password"
+                        value={data?.password}
+                        onChange={handleChange}
                         placeholder="Enter a new password..."
                         className="w-2/3 input-sm sm:input px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
@@ -33,7 +59,7 @@ const TransferSettingsModal = ({ onClose }) => {
                 {/* Done Button */}
                 <div className="flex justify-end">
                     <button
-                        onClick={onClose}
+                        onClick={handlesubmit}
                         className=" button-sm md:button-md lg:button-lg"
                     >
                         Done

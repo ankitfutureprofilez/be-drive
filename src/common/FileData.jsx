@@ -5,34 +5,19 @@ import { FaImage, FaFileAudio, FaFileVideo } from 'react-icons/fa';
 import { RiEyeLine } from "react-icons/ri";
 import { LuDownload } from "react-icons/lu";
 import { formatFileSize } from './formatFileSize';
+import NoData from './NoData';
 
-export default function FileData({ step }) {
-  const files = [
-    { name: "Vault.png", size: 115300, type: "image" }, // size in bytes
-    { name: "Demo.mp4", size: 90200, type: "video" },
-    { name: "Clip.mp4", size: 200000, type: "video" },
-    { name: "Sample.mp4", size: 150800, type: "video" },
-    { name: "Final.mp4", size: 300500, type: "video" },
-    { name: "bedrive.docx", size: 300500, type: "doc" },
-    { name: "image.png", size: 150800, type: "image" },
-  ];
+export default function FileData({ step, selectedFiles, setSelectedFiles }) {
+  console.log("selectedFiles", selectedFiles)
   const getMime = (type) => {
-    const isImage = type.includes('image');
-    const isVideo = type.includes('video');
-    const isAudio = type.includes('audio');
-    const isDoc = type.includes('doc');
-    if (isImage) {
-      return 'image';
-    } else if (isAudio) {
-      return 'audio';
-    } else if (isVideo) {
-      return 'video';
-    } else if (isDoc) {
-      return 'doc';
-    } else {
-      return 'other';
-    }
+    if (!type) return 'other';
+    if (type.includes('image')) return 'image';
+    if (type.includes('video')) return 'video';
+    if (type.includes('audio')) return 'audio';
+    if (type.includes('doc')) return 'doc';
+    return 'other';
   };
+
 
   const fileIcons = {
     video: <FaFileVideo className="text-red-600" size={28} />,
@@ -41,41 +26,57 @@ export default function FileData({ step }) {
     other: <MdInsertDriveFile className="text-gray-600" size={28} />,
     doc: <IoMdDocument className="text-blue-600" size={28} />,
   };
+
+  const handleRemove = (index) => {
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  // Open file in new tab
+  const handleView = (file) => {
+    const fileURL = URL.createObjectURL(file);
+    window.open(fileURL, '_blank');
+  };
+
+  const allFiles = selectedFiles.flatMap(item => item.files ? item.files : item);
+
+  console.log("allFiles", allFiles)
+
+  const totalSizeAll = allFiles.reduce((acc, f) => acc + f.size, 0);
+
+
   return (
-    <div
-      className={`${step === 4 ? "max-h-[300px]" : "max-h-[160px]"
-        } overflow-y-auto custom-scroll mt-2 `}
-    >
-      {files && files?.map((file, index) => (
-        <div
-          key={index}
-          className="flex justify-between items-center text-center space-x-2 p-2"
-        >
-          <div className='flex items-center space-x-1' >
-            <div className='mr-1'>
-              {fileIcons[getMime(file.type)]}
-            </div>
-
+    <div className={`${step === 4 ? "max-h-[300px]" : "max-h-[160px]"} overflow-y-auto custom-scroll mt-2`}>
+      {selectedFiles && selectedFiles?.length === 0 ? (
+        <NoData />
+      ) : selectedFiles.map((file, index) => (
+        <div key={index} className="flex justify-between items-center text-center space-x-2 p-2">
+          <div className='flex items-center space-x-1'>
+            <div className='mr-1'>{fileIcons[getMime(file.type)]}</div>
             <div>
-              <h6 className="heading !font-[700]">
-                {file.name}
-              </h6>
-              <p className="normal-para !text-left">
-                {formatFileSize(file.size)}
-              </p>
-
+              <h6 className="heading !font-[700]">{file.name ? file.name : file?.folderName}</h6>
+              <p className="normal-para !text-left">{formatFileSize(file.size || totalSizeAll || 0)}</p>
             </div>
           </div>
-          <button className="ml-auto ">
+          <div className="ml-auto flex items-center gap-3">
             {step === 4 ? (
-              <div className="flex gap-3">
-                <RiEyeLine size={24} className='text-gray-700 hover:text-gray-400' />
-                <LuDownload size={24} className='text-gray-700 hover:text-gray-400' />
-              </div>
+              <>
+                {!file.files && (
+                  <>
+                    <button onClick={() => handleView(file)}>
+                      <RiEyeLine size={24} className='text-gray-700 hover:text-gray-400' />
+                    </button>
+                    <a href={URL?.createObjectURL(file)} download={file.name}>
+                      <LuDownload size={24} className='text-gray-700 hover:text-gray-400' />
+                    </a>
+                  </>
+                )}
+              </>
             ) : (
-              <MdClose size={24} className='text-gray-700 hover:text-gray-400' />
+              <button onClick={() => handleRemove(index)}>
+                <MdClose size={24} className='text-gray-700 hover:text-gray-400' />
+              </button>
             )}
-          </button>
+          </div>
         </div>
       ))}
     </div>
