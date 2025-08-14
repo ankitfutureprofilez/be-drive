@@ -41,7 +41,7 @@ const StoragePopup = () => {
                             </button>
 
                             <img
-                                src="/unnamed.png"
+                                src="/storage.png"
                                 alt="A visual representation of cloud storage"
                                 className="w-full h-full object-cover"
                             />

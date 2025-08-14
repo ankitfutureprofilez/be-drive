@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import TransferSettingsModal from '../common/TransferSettingsModal'
+import TransferSettingsModal from '../compontent/TransferSettingsModal'
 import { MdAdd } from 'react-icons/md';
 import FileData from '../common/FileData';
 import { CiSettings } from 'react-icons/ci';
-import Menu from '../common/Menu';
+import Menu from '../compontent/Menu';
 
 export default function FileTransferForm({ step, setStep, activeTab, setActiveTab }) {
     const [showSettings, setShowSettings] = useState(false);

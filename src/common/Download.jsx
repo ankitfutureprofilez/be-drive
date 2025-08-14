@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Download() {
     return (
         <div className="manage-col border-apply p-4">

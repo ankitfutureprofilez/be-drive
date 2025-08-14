@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Download from '../common/Download'
 import FileData from '../common/FileData'
-import PasswordModal from '../common/PasswordModal';
-import StoragePopup from '../common/StoragePopup';
+import PasswordModal from '../compontent/PasswordModal';
+import StoragePopup from '../compontent/StoragePopup';
 
 export default function ReceivedItem({ step }) {
     const [ispassowrd, setIspassword] = useState(false)
