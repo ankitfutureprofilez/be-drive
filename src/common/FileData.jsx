@@ -41,7 +41,7 @@ export default function FileData({ step, selectedFiles, setSelectedFiles }) {
   const totalSizeAll = allFiles.reduce((acc, f) => acc + f.size, 0);
 
   return (
-    <div className={`${step === 4 ? "max-h-[300px]" : "max-h-[160px]"} overflow-y-auto custom-scroll mt-2`}>
+    <div className={`${step === 4 ? "min-h-[300px]" : "min-h-[160px]"} overflow-y-auto custom-scroll mt-2`}>
       {selectedFiles && selectedFiles?.length === 0 ? (
         <NoData />
       ) : selectedFiles.map((file, index) => (
