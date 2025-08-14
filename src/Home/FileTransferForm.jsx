@@ -4,7 +4,6 @@ import { MdAdd } from 'react-icons/md';
 import FileData from '../common/FileData';
 import { CiSettings } from 'react-icons/ci';
 import Menu from '../compontent/Menu';
-
 export default function FileTransferForm({ step, setStep, activeTab, setActiveTab, selectedFiles, setSelectedFiles }) {
     const [showSettings, setShowSettings] = useState(false);
     const handleSettingsClick = () => {
@@ -13,19 +12,15 @@ export default function FileTransferForm({ step, setStep, activeTab, setActiveTa
     const handleModalClose = () => {
         setShowSettings(false);
     };
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-
     const [data, setData] = useState({
         email: "",
         name: "",
         message: ""
     })
-
     const handleChange = (e) => {
         setData((prevalue) => {
             return {

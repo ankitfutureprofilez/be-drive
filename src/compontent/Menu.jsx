@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import  { useRef } from "react";
 
 const Menu = ({ setSelectedFiles, toggleMenu }) => {
   const fileInputRef = useRef(null);
