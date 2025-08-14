@@ -9,11 +9,11 @@ export default function Header() {
             </div>
 
             {/* Top right buttons */}
-            <div className="absolute top-6 right-6 flex space-x-3 bg-white px-3 py-2 rounded-[15px]">
+            <div className="flex flex-col md:flex-row absolute top-4 md:top-6 right-6 flex space-x-3 bg-white px-3 py-2 rounded-[15px]">
                 <button className="font-schi py-2 lg:px-3 lg:py-1 md:px-5 md:py-2.5 sm:px-4 sm:py-1.5 w-full font-[600] rounded-md text-black text-center cursor-pointer">
                     Learn more
                 </button>
-                <button className="button lg:button-lg md:button-md whitespace-nowrap">
+                <button className="button-sm lg:button-lg md:button-md whitespace-nowrap">
                     Get Started for Free
                 </button>
             </div>

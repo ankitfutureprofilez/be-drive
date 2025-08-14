@@ -1,18 +1,21 @@
 import React from 'react';
-import { MdInsertDriveFile, MdClose, MdDownload, MdDock } from 'react-icons/md';
-import { IoMdDocument, IoMdEye } from 'react-icons/io';
+import { MdInsertDriveFile, MdClose } from 'react-icons/md';
+import { IoMdDocument } from 'react-icons/io';
 import { FaImage, FaFileAudio, FaFileVideo } from 'react-icons/fa';
+import { RiEyeLine } from "react-icons/ri";
+import { LuDownload } from "react-icons/lu";
+import { formatFileSize } from './formatFileSize';
+
 export default function FileData({ step }) {
   const files = [
-    { name: "Vault.png", size: "115.3 KB", type: "image" },
-    { name: "Demo.mp4", size: "90.2 KB", type: "video" },
-    { name: "Clip.mp4", size: "200.0 KB", type: "video" },
-    { name: "Sample.mp4", size: "150.8 KB", type: "video" },
-    { name: "Final.mp4", size: "300.5 KB", type: "video" },
-    { name: "bedrive.docx", size: "300.5 KB", type: "doc" },
-    { name: "image.png", size: "150.8 KB", type: "image" },
+    { name: "Vault.png", size: 115300, type: "image" }, // size in bytes
+    { name: "Demo.mp4", size: 90200, type: "video" },
+    { name: "Clip.mp4", size: 200000, type: "video" },
+    { name: "Sample.mp4", size: 150800, type: "video" },
+    { name: "Final.mp4", size: 300500, type: "video" },
+    { name: "bedrive.docx", size: 300500, type: "doc" },
+    { name: "image.png", size: 150800, type: "image" },
   ];
-
   const getMime = (type) => {
     const isImage = type.includes('image');
     const isVideo = type.includes('video');
@@ -46,21 +49,28 @@ export default function FileData({ step }) {
       {files && files?.map((file, index) => (
         <div
           key={index}
-          className="flex justify-between items-center text-center space-x-2"
+          className="flex justify-between items-center text-center space-x-2 p-2"
         >
-          <div className="flex items-center space-x-3 p-1">
-            {fileIcons[getMime(file.type)]}
+          <div className='flex items-center space-x-1' >
+            <div className='mr-1'>
+              {fileIcons[getMime(file.type)]}
+            </div>
+
             <div>
-              <h6 className="heading">{file.name}</h6>
-              <p className="para">{file.size}</p>
+              <h6 className="heading !font-[700]">
+                {file.name}
+              </h6>
+              <p className="normal-para !text-left">
+                {formatFileSize(file.size)}
+              </p>
+
             </div>
           </div>
-
           <button className="ml-auto ">
             {step === 4 ? (
               <div className="flex gap-3">
-                <IoMdEye size={24} className='text-gray-700 hover:text-gray-400' />
-                <MdDownload size={24} className='text-gray-700 hover:text-gray-400' />
+                <RiEyeLine size={24} className='text-gray-700 hover:text-gray-400' />
+                <LuDownload size={24} className='text-gray-700 hover:text-gray-400' />
               </div>
             ) : (
               <MdClose size={24} className='text-gray-700 hover:text-gray-400' />
