@@ -51,12 +51,12 @@ export default function FileData({ step, selectedFiles, setSelectedFiles, setSte
   return (
     <div
       className={`
-  ${isDragging ? "bg-green-50" : "bg-white"}
-  ${step === 4 ? "max-h-[250px]" : "max-h-[130px]"}
-  mt-2
-  custom-scroll
-  overflow-y-auto
-`}
+       ${isDragging ? "bg-green-50" : "bg-white"}
+       ${step === 4 ? "max-h-[400px]" : "max-h-[130px]"}
+         mt-2
+         custom-scroll
+         overflow-y-auto
+        `}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
@@ -65,7 +65,7 @@ export default function FileData({ step, selectedFiles, setSelectedFiles, setSte
         <NoData />
       ) : (
         selectedFiles.map((file, index) => (
-          <div key={index} className="flex justify-between items-center space-x-2 py-2">
+          <div key={index} className="between-align  space-x-2 py-2">
             <div className="flex items-center space-x-2">
               <div>{fileIcons[getMime(file.type)]}</div>
               <div>

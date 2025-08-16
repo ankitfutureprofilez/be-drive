@@ -4,14 +4,10 @@ import React from 'react';
 import { AiOutlineCopy } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
-
-
 const TransferSuccessPage = ({ type = 'Email', downloadLink, step, setStep }) => {
     const headingText = type === 'Link'
         ? 'Your link is ready'
         : 'Your transfer has been sent to your recipient(s)';
-
 
     const copyToClipboard = async () => {
         try {

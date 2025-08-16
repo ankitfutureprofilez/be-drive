@@ -10,7 +10,7 @@ export default function Header() {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex flex-col sm:flex-row items-center gap-2 bg-white px-3 py-2 rounded-[15px]">
+                <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-[15px]">
                     <button className="hidden sm:block font-schi font-[600] text-black rounded-md cursor-pointer px-4 py-2">
                         Learn More
                     </button>

@@ -39,7 +39,7 @@ export default function FileTransferForm({ step, setStep, activeTab, setActiveTa
             {step === 2 && (
                 <div className=" overflow-hidden relative " onClick={() => showSettings && handleModalClose()}>
                     <div className='p-[20px] md:p-[30px]'>
-                        <div className="flex items-center justify-between">
+                        <div className="between-align">
                             <div>
                                 <h2 className="heading-md mb-1">1 items</h2>
                                 <p className="para !text-[#999999]">115.3 KB out of 100 GB</p>
@@ -101,7 +101,7 @@ export default function FileTransferForm({ step, setStep, activeTab, setActiveTa
                             value={data?.message}
                             onChange={handleChange}
                         />
-                        <div className='flex justify-between items-center text-center pt-[20px] gap-5  md:gap-0'>
+                        <div className='between-align pt-[20px] gap-5 md:gap-0'>
                             <div className='flex items-top space-x-1' onClick={handleSettingsClick}>
                                 <CiSettings size={28} className="text-black" />
                                 <div>
