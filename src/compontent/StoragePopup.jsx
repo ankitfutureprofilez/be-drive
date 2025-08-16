@@ -27,12 +27,12 @@ const StoragePopup = () => {
                 Open Popup
             </button>
             {isOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white md:rounded-3xl shadow-2xl w-full  md:max-w-4xl flex flex-col lg:flex-row max-h-[90vh]">
-                        <div className="flex-1 flex flex-col relative  ">
-                            {/* Close icon */}
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/50">
+                    <div className="bg-white rounded-none md:rounded-3xl shadow-2xl w-full h-full md:max-w-4xl md:h-auto flex flex-col lg:flex-row overflow-auto">
+                        {/* Left image section */}
+                        <div className="flex-1 flex flex-col relative h-1/3 md:h-auto">
                             <button
-                                className="absolute top-6 left-6 text-black hover:text-red-500"
+                                className="absolute top-4 left-4 text-black hover:text-red-500 z-10"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <RiCloseFill size={32} />
@@ -40,27 +40,30 @@ const StoragePopup = () => {
                             <img
                                 src="/storage.png"
                                 alt="A visual representation of cloud storage"
-                                className="w-full h-[350px] md:h-full object-cover"
+                                className="w-full h-full object-cover"
                             />
                         </div>
-                        <div className="bg-white text-black p-4 md:p-8 lg:p-12 flex-1 flex flex-col justify-center space-y-6">
-                            <h2 className="text-4xl font-bold mb-3 md:mb-6">Want to store your content?</h2>
+
+                        {/* Right content section */}
+                        <div className="bg-white text-black p-4 md:p-8 flex-1 flex flex-col justify-center space-y-6 overflow-auto">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-6">Want to store your content?</h2>
                             {features.map((item, idx) => (
-                                <div key={idx} className="flex items-start md: space-x-3">
+                                <div key={idx} className="flex items-start space-x-3">
                                     <FaCheck className="w-6 h-6 text-green-400 mt-1" />
                                     <div>
-                                        <h3 className="font-semibold text-xl">{item.title}</h3>
-                                        <p className="text-gray-600 mt-1">{item.description}</p>
+                                        <h3 className="font-semibold text-lg md:text-xl">{item.title}</h3>
+                                        <p className="text-gray-600 mt-1 text-sm md:text-base">{item.description}</p>
                                     </div>
                                 </div>
                             ))}
-                            <button className="button-sm md:button-md lg:button-lg">
+                            <button className="button-sm md:button-md lg:button-lg w-full md:w-auto">
                                 Get started for free
                             </button>
                         </div>
                     </div>
-                </div>)
-            }
+                </div>
+            )}
+
         </>
     );
 };
