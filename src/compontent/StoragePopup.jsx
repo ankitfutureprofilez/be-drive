@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { FaCheck } from 'react-icons/fa'; // Assuming you have this installed
+import { useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import { RiCloseFill } from 'react-icons/ri';
 
 const StoragePopup = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const features = [
         {
             title: '20GB of secure, high-quality storage',
@@ -17,9 +18,6 @@ const StoragePopup = () => {
             description: 'Fill, sign, edit and comment, all in one place, no tool switching.',
         },
     ];
-
-    const [isOpen, setIsOpen] = useState(false);
-
     return (
         <>
             <button
@@ -30,7 +28,7 @@ const StoragePopup = () => {
             </button>
             {isOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl overflow-auto flex flex-col lg:flex-row max-h-[90vh]">
+                    <div className="bg-white md:rounded-3xl shadow-2xl w-full  md:max-w-4xl flex flex-col lg:flex-row max-h-[90vh]">
                         <div className="flex-1 flex flex-col relative  ">
                             {/* Close icon */}
                             <button
@@ -39,15 +37,12 @@ const StoragePopup = () => {
                             >
                                 <RiCloseFill size={32} />
                             </button>
-
                             <img
                                 src="/storage.png"
                                 alt="A visual representation of cloud storage"
-                                className="w-full h-full object-cover"
+                                className="w-full h-[350px] md:h-full object-cover"
                             />
                         </div>
-
-
                         <div className="bg-white text-black p-4 md:p-8 lg:p-12 flex-1 flex flex-col justify-center space-y-6">
                             <h2 className="text-4xl font-bold mb-3 md:mb-6">Want to store your content?</h2>
                             {features.map((item, idx) => (
@@ -63,7 +58,6 @@ const StoragePopup = () => {
                                 Get started for free
                             </button>
                         </div>
-
                     </div>
                 </div>)
             }

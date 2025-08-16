@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdClose } from "react-icons/md";
 const TransferSettingsModal = ({ onClose }) => {
     const [data, setData] = useState({
         password: "",
@@ -19,7 +20,12 @@ const TransferSettingsModal = ({ onClose }) => {
     return (
         <div className="fixed inset-0 w-full max-w-[435px]  bg-gray-600 bg-opacity-50 flex items-end justify-center p-[3px] z-50 absolute">
             <div className="bg-white w-full max-w-[435px]  rounded-[15px] shadow-xl p-6 animate-slideUp">
-                <h3 className="normal-heading mb-4">Transfer settings</h3>
+                <div className="flex items-center justify-between space-x-3 text-center mb-2">
+                    <h3 className="normal-heading text-lg font-semibold text-gray-800">Transfer settings</h3>
+                    <div onClick={onClose} className="cursor-pointer text-gray-500 hover:text-gray-700 transition">
+                        <MdClose size={24} />
+                    </div>
+                </div>
                 <div className="mb-4 flex items-center justify-between">
                     <label className="text-[18px] font-medium text-black font-bold w-1/3 font-schibsted">
                         Expiration

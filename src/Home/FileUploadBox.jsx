@@ -1,9 +1,8 @@
 import React, { useState, useRef } from "react";
 import { MdAdd } from "react-icons/md";
+import { useFileDrop } from "../common/useFileDrop";
 
 export default function FileUploadBox({ setStep, step, selectedFiles, setSelectedFiles }) {
-    const [isDragging, setIsDragging] = useState(false);
-
     const addInputRef = useRef(null);
     const folderInputRef = useRef(null);
 
@@ -15,7 +14,6 @@ export default function FileUploadBox({ setStep, step, selectedFiles, setSelecte
 
         arr.forEach((file) => {
             if (file.webkitRelativePath) {
-                // Folder file
                 const pathParts = file.webkitRelativePath.split('/');
                 const folderName = pathParts.length > 1 ? pathParts[0] : "Root";
                 if (!folderMap[folderName]) folderMap[folderName] = [];
@@ -38,27 +36,19 @@ export default function FileUploadBox({ setStep, step, selectedFiles, setSelecte
     };
 
 
-    const handleDragOver = (e) => {
-        e.preventDefault();
-        setIsDragging(true);
+    const handleDropAction = (newItems) => {
+        setSelectedFiles((prev) => [...prev, ...newItems]);
+        setStep(2);
     };
+    const { isDragging, handleDragOver, handleDragLeave, handleDrop } = useFileDrop(handleDropAction);
 
-    const handleDragLeave = () => {
-        setIsDragging(false);
-    };
 
-    const handleDrop = (e) => {
-        e.preventDefault();
-        setIsDragging(false);
-        const files = Array.from(e.dataTransfer.files);
-        if (files.length > 0) handleFilesSelected(files);
-    };
 
     return (
         <>
             {step === 1 && (
                 <div
-                    className={`box flex flex-col items-center justify-center !h-[576px] rounded-[15px] transition
+                    className={`box flex flex-col items-center justify-center h-[450px] md:!h-[576px] rounded-[15px] transition
             ${isDragging ? "border-green-500 bg-green-50" : "border-gray-300"}`}
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
