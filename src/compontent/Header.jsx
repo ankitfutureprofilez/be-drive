@@ -2,7 +2,7 @@ import React from 'react'
 export default function Header() {
     return (
         <>
-            <div className='flex flex-col md:flex-row space-y-2 md:space-x-3 md:space-y-0'>
+            <div className='flex flex-col md:flex-row justify-between items-center space-y-2 md:space-x-3 md:space-y-0'>
                 <div className="absolute top-6 left-6 flex items-center space-x-2 bg-white rounded-[15px] px-3 py-2 text-center">
                     <img src="/logo.png" alt="Drime Logo" className="w-15 h-15 object-cover " />
                 </div>
