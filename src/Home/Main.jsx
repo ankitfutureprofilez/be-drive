@@ -13,6 +13,7 @@ export default function Main() {
   return (
     <Layout>
       <div className="boxmodel">
+        <div className="box">
         {/* Step 1 */}
         <FileUploadBox setStep={setStep} step={step} setSelectedFiles={setSelectedFiles} />
         {/* Step 2 */}
@@ -24,6 +25,7 @@ export default function Main() {
         <TransferFile setStep={setStep} step={step} />
         {/* Step 5 */}
         <ReceivedItem setStep={setStep} step={step} selectedFiles={selectedFiles} />
+        </div>
       </div>
     </Layout>
   );

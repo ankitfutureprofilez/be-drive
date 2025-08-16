@@ -50,6 +50,7 @@ body{
 }
 
 @layer components{
+  .center-align{@apply flex items-center justify-center}
   .button {
   @apply bg-[#08CF65] text-white text-center font-[600] cursor-pointer rounded-[10px] inline-block font-schibsted;
 }
@@ -57,8 +58,8 @@ body{
 .button-md {  @apply button text-[14px] px-4 py-2;}
 .button-lg {  @apply button text-[16px] px-5 py-2; }
 
-.boxmodel{ @apply   h-screen flex items-center justify-center}
-.box{ @apply bg-white rounded-[20px] shadow-lg w-[435px]  font-schibsted  }
+.boxmodel{ @apply    flex flex-col h-[90vh] items-center justify-center}
+.box{ @apply bg-white rounded-[20px] shadow-lg w-full sm:max-w-[435px]  font-schibsted   }
 .para{ @apply text-[#111111] text-[18px] leading-7 font-normal font-schibsted text-center }
 .normal-para{ @apply text-[#999999] text-[16px] leading-6 font-normal font-schibsted text-center }
 

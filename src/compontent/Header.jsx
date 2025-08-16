@@ -1,21 +1,25 @@
 import React from 'react'
 export default function Header() {
     return (
-        <>
-            <div className='flex flex-col md:flex-row justify-between items-center space-y-2 md:space-x-3 md:space-y-0'>
-                <div className="absolute top-6 left-6 flex items-center space-x-2 bg-white rounded-[15px] px-3 py-2 text-center">
-                    <img src="/logo.png" alt="Drime Logo" className="w-15 h-15 object-cover " />
+        <div className="w-full px-4 py-3 md:px-6">
+            <div className="flex justify-between items-center w-full gap-3 md:gap-0">
+
+                {/* Logo */}
+                <div className="flex items-center space-x-2 bg-white rounded-[15px] px-3 py-2">
+                    <img src="/logo.png" alt="Drime Logo" className="w-15 h-15 object-cover" />
                 </div>
-                {/* Top right buttons */}
-                <div className="flex flex-col md:flex-row absolute top-4 md:top-6 right-6 flex items-center space-x-2 bg-white px-3 py-2 rounded-[15px]">
-                    <button className="hidden sm:block font-schi py-2 lg:px-3 lg:py-1 md:px-5 md:py-2.5 sm:px-4 sm:py-1.5 w-full font-[600] rounded-md text-black text-center cursor-pointer">
-                        Learn more
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row items-center gap-2 bg-white px-3 py-2 rounded-[15px]">
+                    <button className="hidden sm:block font-schi font-[600] text-black rounded-md cursor-pointer px-4 py-2">
+                        Learn More
                     </button>
-                    <button className="button-sm lg:button-lg md:button-md whitespace-nowrap">
+                    <button className="button-sm md:button-md lg:button-lg whitespace-nowrap">
                         Get Started for Free
                     </button>
                 </div>
             </div>
-        </>
+        </div>
+
     )
 }

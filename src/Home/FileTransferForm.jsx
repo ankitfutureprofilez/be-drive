@@ -37,7 +37,7 @@ export default function FileTransferForm({ step, setStep, activeTab, setActiveTa
     return (
         <>
             {step === 2 && (
-                <div className="box overflow-hidden relative mt-[15px] md:mt-[0px]" onClick={() => showSettings && handleModalClose()}>
+                <div className=" overflow-hidden relative " onClick={() => showSettings && handleModalClose()}>
                     <div className='p-[20px] md:p-[30px]'>
                         <div className="flex items-center justify-between">
                             <div>

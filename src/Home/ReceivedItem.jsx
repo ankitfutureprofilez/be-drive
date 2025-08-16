@@ -4,7 +4,7 @@ import FileData from '../common/FileData'
 import PasswordModal from '../compontent/PasswordModal';
 import StoragePopup from '../compontent/StoragePopup';
 
-export default function ReceivedItem({ step ,selectedFiles ,setStep }) {
+export default function ReceivedItem({ step, selectedFiles, setStep }) {
     const [ispassowrd, setIspassword] = useState(false)
     const handleDownload = () => {
         console.log('Download button clicked!');
@@ -17,7 +17,7 @@ export default function ReceivedItem({ step ,selectedFiles ,setStep }) {
     return (
         <>
             {step === 5 && (
-                <div className="box mt-[20px] md:mt-0">
+                <>
                     <Download />
                     <div className='!pt-0 p-[20px] md:p-[30px]'>
                         <FileData step={4} selectedFiles={selectedFiles} setStep={setStep} />
@@ -32,9 +32,9 @@ export default function ReceivedItem({ step ,selectedFiles ,setStep }) {
                                 Download
                             </button>
                         </div>
-                        <StoragePopup/>
+                        <StoragePopup />
                     </div>
-                </div>
+                </>
             )}
             {ispassowrd && (
                 <PasswordModal

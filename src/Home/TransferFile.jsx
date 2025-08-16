@@ -13,7 +13,7 @@ export default function TransferFile({ step, setStep }) {
     return (
         <>
             {step === 4 && (
-                <div className="box flex items-center justify-center !h-[576px] mt-[15px] md:mt-[0px]">
+                <div className=" center-align !h-[576px]">
                     <div className=' '>
                         <div className="relative h-40 w-40 mx-auto mb-6">
                             <svg className="w-full h-full" viewBox="0 0 140 140">

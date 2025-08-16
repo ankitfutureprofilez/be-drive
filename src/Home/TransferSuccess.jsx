@@ -26,9 +26,9 @@ const TransferSuccessPage = ({ type = 'Email', downloadLink, step, setStep }) =>
     return (
         <>
             {step === 3 && (
-                <div className="box flex items-center justify-center mt-[15px] md:mt-[0px] ">
+                <div className="center-align">
                     <div className="manage-col p-4 md:p-[40px]">
-                        <div className="flex justify-center mb-6">
+                        <div className="center-align mb-6">
                             {type === "Link" ? (
                                 <img src="./Shared.png" alt='' className='h-32 w-32' />
                             ) : (
@@ -45,7 +45,7 @@ const TransferSuccessPage = ({ type = 'Email', downloadLink, step, setStep }) =>
                                 <p className="normal-para mb-4 md:mb-8 p-1 md:p-3">
                                     The download link for your transfer is available for X days.
                                 </p>
-                                <div className="flex items-center space-x-2 p-2 md:p-5">
+                                <div className="center-align space-x-2 p-2 md:p-5">
                                     <div className="relative flex-1">
                                         <input
                                             type="text"
@@ -64,7 +64,7 @@ const TransferSuccessPage = ({ type = 'Email', downloadLink, step, setStep }) =>
                             </>
                         )}
                         {type === 'Email' && (
-                            <div className="flex flex-col items-center text-center mt-3 mb-4 md:mb-8 p-1 md:p-3">
+                            <div className="manage-col mt-3 mb-4 md:mb-8 p-1 md:p-3">
                                 <button className="button-sm sm:button-md md:button-lg ">
                                     View transfer
                                 </button>

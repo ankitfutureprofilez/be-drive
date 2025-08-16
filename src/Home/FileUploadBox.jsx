@@ -47,8 +47,8 @@ export default function FileUploadBox({ setStep, step, selectedFiles, setSelecte
         <>
             {step === 1 && (
                 <div
-                    className={`box flex flex-col items-center justify-center h-[450px] md:!h-[576px] rounded-[15px] transition
-            ${isDragging ? "border-green-500 bg-green-50" : "border-gray-300"}`}
+                    className={` center-align  flex-col  h-[450px] md:!h-[576px] rounded-[15px] transition
+                ${isDragging ? "border-green-500 bg-green-50" : "border-gray-300"}`}
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onDrop={handleDrop}
