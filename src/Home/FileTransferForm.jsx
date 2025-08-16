@@ -101,7 +101,7 @@ export default function FileTransferForm({ step, setStep, activeTab, setActiveTa
                             value={data?.message}
                             onChange={handleChange}
                         />
-                        <div className='flex justify-between items-center text-center pt-[20px]'>
+                        <div className='flex justify-between items-center text-center pt-[20px] gap-5  md:gap-0'>
                             <div className='flex items-top space-x-1' onClick={handleSettingsClick}>
                                 <CiSettings size={28} className="text-black" />
                                 <div>

@@ -50,7 +50,13 @@ export default function FileData({ step, selectedFiles, setSelectedFiles, setSte
 
   return (
     <div
-      className={`${isDragging ? " bg-green-50" : "bg-white"} ${step === 4 ? "min-h-[300px]" : "min-h-[160px]"}  overflow-y-auto custom-scroll mt-2`}
+    className={`
+  ${isDragging ? "bg-green-50" : "bg-white"}
+  ${step === 4 ? "max-h-[250px]" : "max-h-[130px]"}
+  mt-2
+  custom-scroll
+  overflow-y-auto
+`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
