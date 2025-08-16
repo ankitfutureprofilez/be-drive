@@ -50,7 +50,7 @@ export default function FileData({ step, selectedFiles, setSelectedFiles, setSte
 
   return (
     <div
-    className={`
+      className={`
   ${isDragging ? "bg-green-50" : "bg-white"}
   ${step === 4 ? "max-h-[250px]" : "max-h-[130px]"}
   mt-2
