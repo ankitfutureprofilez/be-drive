@@ -1,4 +1,3 @@
-import React, { useRef, useState } from 'react';
 import { MdInsertDriveFile, MdClose } from 'react-icons/md';
 import { IoMdDocument } from 'react-icons/io';
 import { FaImage, FaFileAudio, FaFileVideo } from 'react-icons/fa';
@@ -10,43 +9,11 @@ import { useFileDrop } from './useFileDrop';
 
 export default function FileData({ step, selectedFiles, setSelectedFiles, setStep }) {
 
-  console.log("selectedFiles", selectedFiles)
-
-  const handleFilesSelected = (files) => {
-    const arr = Array.from(files);
-
-    const folderMap = {};
-    const individualFiles = [];
-
-    arr.forEach((file) => {
-      if (file.webkitRelativePath) {
-        const pathParts = file.webkitRelativePath.split('/');
-        const folderName = pathParts.length > 1 ? pathParts[0] : "Root";
-        if (!folderMap[folderName]) folderMap[folderName] = [];
-        folderMap[folderName].push(file);
-      } else {
-        // Individual file
-        individualFiles.push(file);
-      }
-    });
-
-    // Convert folderMap to array
-    const groupedFolders = Object.keys(folderMap).map((folderName) => ({
-      folderName,
-      files: folderMap[folderName],
-    }));
-
-    // Combine individual files and folders
-    setSelectedFiles((prev) => [...prev, ...individualFiles, ...groupedFolders]);
-    setStep(2);
-  };
-
-
-
   const handleDropAction = (newItems) => {
     setSelectedFiles((prev) => [...prev, ...newItems]);
     setStep(2);
   };
+
   const { isDragging, handleDragOver, handleDragLeave, handleDrop } = useFileDrop(handleDropAction);
   // File type icons
   const getMime = (type) => {

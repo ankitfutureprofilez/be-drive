@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useRef } from "react";
 import { MdAdd } from "react-icons/md";
 import { useFileDrop } from "../common/useFileDrop";
 
@@ -34,7 +34,6 @@ export default function FileUploadBox({ setStep, step, selectedFiles, setSelecte
         setSelectedFiles((prev) => [...prev, ...individualFiles, ...groupedFolders]);
         setStep(2);
     };
-
 
     const handleDropAction = (newItems) => {
         setSelectedFiles((prev) => [...prev, ...newItems]);

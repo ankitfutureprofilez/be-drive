@@ -17,6 +17,7 @@ const TransferSettingsModal = ({ onClose }) => {
         e.preventDefault();
         onClose();
     }
+
     return (
         <div className="fixed inset-0 w-full max-w-[435px]  bg-gray-600 bg-opacity-50 flex items-end justify-center p-[3px] z-50 absolute">
             <div className="bg-white w-full max-w-[435px]  rounded-[15px] shadow-xl p-6 animate-slideUp">
@@ -38,7 +39,7 @@ const TransferSettingsModal = ({ onClose }) => {
                             onClick={(e) => e.target.showPicker && e.target.showPicker()}
                             type="date"
                             placeholder="dd/mm/yyyy"
-                            className="w-full input-sm sm:input pl-3 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full input-sm sm:input px-3  py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
                 </div>
