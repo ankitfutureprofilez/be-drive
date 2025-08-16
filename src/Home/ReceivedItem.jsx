@@ -17,7 +17,7 @@ export default function ReceivedItem({ step ,selectedFiles ,setStep }) {
     return (
         <>
             {step === 5 && (
-                <div className="box">
+                <div className="box mt-[20px] md:mt-0">
                     <Download />
                     <div className='!pt-0 p-[20px] md:p-[30px]'>
                         <FileData step={4} selectedFiles={selectedFiles} setStep={setStep} />

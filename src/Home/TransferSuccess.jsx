@@ -26,7 +26,7 @@ const TransferSuccessPage = ({ type = 'Email', downloadLink, step, setStep }) =>
     return (
         <>
             {step === 3 && (
-                <div className="box flex items-center justify-center ">
+                <div className="box flex items-center justify-center mt-[15px] md:mt-[0px] ">
                     <div className="manage-col p-4 md:p-[40px]">
                         <div className="flex justify-center mb-6">
                             {type === "Link" ? (
